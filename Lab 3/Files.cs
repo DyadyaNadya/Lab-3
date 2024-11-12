@@ -6,12 +6,12 @@ using System.Xml.Serialization;
 
 public static class Files
 {
-    //4 задание
+    //4 Р·Р°РґР°РЅРёРµ
     public static int CountOppositePairs(string file)
     {
         if (!File.Exists(file))
         {
-            throw new FileNotFoundException("Файл не найден");
+            throw new FileNotFoundException("Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ");
         }
 
         HashSet<string> pairs = new HashSet<string>();
@@ -42,7 +42,7 @@ public static class Files
                             {
                                 count++;
                                 checkedPairs.Add(pairkey);
-                                Console.WriteLine($"Пара ({numbers[i]}, {numbers[j]}) проверена.");
+                                Console.WriteLine($"РџР°СЂР° ({numbers[i]}, {numbers[j]}) РїСЂРѕРІРµСЂРµРЅР°.");
                             }
                         }
                     }
@@ -59,7 +59,7 @@ public static class Files
 
     public static void Filler(string file)
     {
-        int n = Check.GetPositiveInt("Введите количество чисел в файле: ");
+        int n = Check.GetPositiveInt("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‡РёСЃРµР» РІ С„Р°Р№Р»Рµ: ");
         Random rnd = new Random();
         using (BinaryWriter writer = new BinaryWriter(File.Open(file, FileMode.Create)))
         {
@@ -74,7 +74,7 @@ public static class Files
         }
     }
 
-    //Задание 5
+    //Р—Р°РґР°РЅРёРµ 5
 
     [Serializable]
     public struct BaggageItem
@@ -96,7 +96,7 @@ public static class Files
         }
     }
 
-        //Сериализация объектов и запись в файл
+        //РЎРµСЂРёР°Р»РёР·Р°С†РёСЏ РѕР±СЉРµРєС‚РѕРІ Рё Р·Р°РїРёСЃСЊ РІ С„Р°Р№Р»
         public static void SerializeBaggageToFile(string file, BaggageItem[] items)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(BaggageItem[]));
@@ -106,18 +106,18 @@ public static class Files
             }
         }
 
-        //Ввод
+        //Р’РІРѕРґ
         public static BaggageItem[] FillBaggageArray()
         {
             
-        int n = Check.GetPositiveInt("Введите количество элементов багажа: ");
+        int n = Check.GetPositiveInt("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ Р±Р°РіР°Р¶Р°: ");
             BaggageItem[] baggage = new BaggageItem[n];
 
             for (int i = 0; i < n; i++)
             {
-                Console.Write($"Введите название {i + 1}-й единицы багажа: ");
+                Console.Write($"Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ {i + 1}-Р№ РµРґРёРЅРёС†С‹ Р±Р°РіР°Р¶Р°: ");
                 string name = Console.ReadLine();
-                double mass = Check.GetPositiveDouble($"Введите массу {i + 1}-й единицы багажа: ");
+                double mass = Check.GetPositiveDouble($"Р’РІРµРґРёС‚Рµ РјР°СЃСЃСѓ {i + 1}-Р№ РµРґРёРЅРёС†С‹ Р±Р°РіР°Р¶Р°: ");
 
                 baggage[i] = new BaggageItem { Name = name, Mass = mass };
             }
@@ -125,7 +125,7 @@ public static class Files
             return baggage;
         }
 
-        //Десериализация и чтение массива объектов
+        //Р”РµСЃРµСЂРёР°Р»РёР·Р°С†РёСЏ Рё С‡С‚РµРЅРёРµ РјР°СЃСЃРёРІР° РѕР±СЉРµРєС‚РѕРІ
         public static BaggageItem[] DeserializeBaggageFromFile(string file)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(BaggageItem[]));
@@ -135,12 +135,12 @@ public static class Files
             }
         }
 
-        //Вычисление разницы
+        //Р’С‹С‡РёСЃР»РµРЅРёРµ СЂР°Р·РЅРёС†С‹
         public static double Difference(BaggageItem[] items)
         {
             if (items == null || items.Length == 0)
             {
-                throw new ArgumentException("Список багажа пуст или отсутствует");
+                throw new ArgumentException("РЎРїРёСЃРѕРє Р±Р°РіР°Р¶Р° РїСѓСЃС‚ РёР»Рё РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚");
             }
 
             double maxMass = items.Max(item => item.Mass);
@@ -151,10 +151,10 @@ public static class Files
 
 
 
-        //Задание 6
+        //Р—Р°РґР°РЅРёРµ 6
         public static void FillTheFile(string file)
         {
-        int n = Check.GetPositiveInt("Введите количество чисел в файле: ");
+        int n = Check.GetPositiveInt("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‡РёСЃРµР» РІ С„Р°Р№Р»Рµ: ");
             Random rnd = new Random();
             using (StreamWriter writer = new StreamWriter(File.Open(file, FileMode.Create)))
             {
@@ -185,11 +185,11 @@ public static class Files
             return true;
         }
 
-        //Задание 7
+        //Р—Р°РґР°РЅРёРµ 7
         public static void FillTheFileLine(string file)
         {
-        int n = Check.GetPositiveInt("Введите количество строк в файле: ");    
-        int str = Check.GetPositiveInt("Введите количество чисел в строке: ");
+        int n = Check.GetPositiveInt("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РІ С„Р°Р№Р»Рµ: ");    
+        int str = Check.GetPositiveInt("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‡РёСЃРµР» РІ СЃС‚СЂРѕРєРµ: ");
 
             Random rnd = new Random();
             using (StreamWriter writer = new StreamWriter(File.Open(file, FileMode.Create)))
@@ -234,7 +234,7 @@ public static class Files
         }
 
 
-        //Задание 8
+        //Р—Р°РґР°РЅРёРµ 8
         public static void LinesWithChar(string fileinput, string fileoutput, char ending)
         {
             using (StreamReader reader = new StreamReader(fileinput))
