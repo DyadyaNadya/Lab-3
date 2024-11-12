@@ -9,7 +9,7 @@ public class Check
             string input = Console.ReadLine();
             if (!int.TryParse(input, out result) || result <= 0)
             {
-                Console.WriteLine("Ïîæàëóéñòà, ââåäèòå ïîëîæèòåëüíîå öåëîå ÷èñëî. ");
+                Console.WriteLine("ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ñ†ÐµÐ»Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾. ");
             }
         } while (result <= 0);
         return result;
@@ -24,7 +24,7 @@ public class Check
             string input = Console.ReadLine();
             if (!double.TryParse(input, out result) || result <= 0)
             {
-                Console.WriteLine("Ïîæàëóéñòà, ââåäèòå ïîëîæèòåëüíîå ÷èñëî. ");
+                Console.WriteLine("ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾. ");
             }
         } while (result <= 0);
         return result;
@@ -39,7 +39,7 @@ public class Check
             input = Console.ReadLine();
             if (input.Length != 1 || !char.TryParse(input, out result))
             {
-                Console.WriteLine("Ïîæàëóéñòà, ââåäèòå îäèí ñèìâîë.");
+                Console.WriteLine("ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¾Ð´Ð¸Ð½ ÑÐ¸Ð¼Ð²Ð¾Ð».");
             }
         } while (input.Length != 1 || !char.TryParse(input, out result));
         return result;
