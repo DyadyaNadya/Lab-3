@@ -9,18 +9,18 @@ public class Matrix
     }
 
 
-    //Конструктор для первого массива
+    //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ РїРµСЂРІРѕРіРѕ РјР°СЃСЃРёРІР°
     public Matrix(int n, int m, bool inputRequired = false)
     {
         matrix = new double[n, m];
         if (inputRequired)
         {
-            Console.WriteLine($"Введите элементы двумерного массива: ");
+            Console.WriteLine($"Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°: ");
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
                 {
-                    Console.Write($"Введите элемент с индексом [{i},{j}]: ");
+                    Console.Write($"Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚ СЃ РёРЅРґРµРєСЃРѕРј [{i},{j}]: ");
                     matrix[i, j] = Convert.ToDouble(Console.ReadLine());
                 }
             }
@@ -29,7 +29,7 @@ public class Matrix
     }
 
 
-    //Конструктор для второго массива
+    //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ РІС‚РѕСЂРѕРіРѕ РјР°СЃСЃРёРІР°
 
     public Matrix(int n)
     {
@@ -52,13 +52,13 @@ public class Matrix
         this.Arr = matrix;
     }
 
-    //Конструктор для третьего массива
+    //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ С‚СЂРµС‚СЊРµРіРѕ РјР°СЃСЃРёРІР°
     public Matrix(int n, bool fill)
     {
         matrix = new double[n, n];
         int value = 1;
 
-        // Заполнение начинается с верхнего правого угла
+        // Р—Р°РїРѕР»РЅРµРЅРёРµ РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ РІРµСЂС…РЅРµРіРѕ РїСЂР°РІРѕРіРѕ СѓРіР»Р°
         for (int startCol = n - 1; startCol >= 0; startCol--)
         {
             int i = 0;
@@ -71,7 +71,7 @@ public class Matrix
             }
         }
 
-        // Заполнение нулями
+        // Р—Р°РїРѕР»РЅРµРЅРёРµ РЅСѓР»СЏРјРё
         for (int startRow = 1; startRow < n; startRow++)
         {
             int i = startRow;
@@ -107,12 +107,12 @@ public class Matrix
         this.Arr = new double[0, 0];
     }
 
-    //Задание 2
+    //Р—Р°РґР°РЅРёРµ 2
     public void debt()
     {
         int banks = matrix.GetLength(0);
 
-        // Заменяем элементы на главной диагонали на ноль
+        // Р—Р°РјРµРЅСЏРµРј СЌР»РµРјРµРЅС‚С‹ РЅР° РіР»Р°РІРЅРѕР№ РґРёР°РіРѕРЅР°Р»Рё РЅР° РЅРѕР»СЊ
         for (int i = 0; i < banks; i++)
         {
             matrix[i, i] = 0;
@@ -120,9 +120,9 @@ public class Matrix
 
         int bankWithMaxDebt = 0;
         int debtorToBank = 0;
-        double maxDebt = 0; // Начальное значение минимальное, чтобы найти максимум
+        double maxDebt = 0; // РќР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕРµ, С‡С‚РѕР±С‹ РЅР°Р№С‚Рё РјР°РєСЃРёРјСѓРј
 
-        // Поиск максимальной задолженности среди всех банков
+        // РџРѕРёСЃРє РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ Р·Р°РґРѕР»Р¶РµРЅРЅРѕСЃС‚Рё СЃСЂРµРґРё РІСЃРµС… Р±Р°РЅРєРѕРІ
         for (int i = 0; i < banks; i++)
         {
             for (int j = 0; j < matrix.GetLength(1); j++)
@@ -136,10 +136,10 @@ public class Matrix
             }
         }
 
-        Console.WriteLine($"\nБанк {bankWithMaxDebt + 1} имеет максимальную задолженность {maxDebt} перед банком {debtorToBank + 1}");
+        Console.WriteLine($"\nР‘Р°РЅРє {bankWithMaxDebt + 1} РёРјРµРµС‚ РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ Р·Р°РґРѕР»Р¶РµРЅРЅРѕСЃС‚СЊ {maxDebt} РїРµСЂРµРґ Р±Р°РЅРєРѕРј {debtorToBank + 1}");
     }
 
-    //Перегрузка оператора для умножения матрицы на число
+    //РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РґР»СЏ СѓРјРЅРѕР¶РµРЅРёСЏ РјР°С‚СЂРёС†С‹ РЅР° С‡РёСЃР»Рѕ
     public static Matrix operator *(double num, Matrix mat)
     {
         int rows = mat.matrix.GetLength(0);
@@ -157,7 +157,7 @@ public class Matrix
 
     }
 
-    //Перегрузка вычитания матриц
+    //РџРµСЂРµРіСЂСѓР·РєР° РІС‹С‡РёС‚Р°РЅРёСЏ РјР°С‚СЂРёС†
     public static Matrix operator -(Matrix mat1, Matrix mat2)
     {
         int rows = mat1.matrix.GetLength(0);
@@ -165,7 +165,7 @@ public class Matrix
 
         if (rows != mat2.matrix.GetLength(0) || cols != mat2.matrix.GetLength(1))
         {
-            throw new ArgumentException("Матрицы имеют разные размеры");
+            throw new ArgumentException("РњР°С‚СЂРёС†С‹ РёРјРµСЋС‚ СЂР°Р·РЅС‹Рµ СЂР°Р·РјРµСЂС‹");
         }
 
         Matrix result = new Matrix(rows, cols);
@@ -181,7 +181,7 @@ public class Matrix
     }
 
 
-    //Перегрпзка оператора умножения матриц
+    //РџРµСЂРµРіСЂРїР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СѓРјРЅРѕР¶РµРЅРёСЏ РјР°С‚СЂРёС†
     public static Matrix operator *(Matrix mat1, Matrix mat2)
     {
         int mat1Rows = mat1.matrix.GetLength(0);
@@ -190,7 +190,7 @@ public class Matrix
         int mat2Cols = mat2.matrix.GetLength(1);
         if (mat1Cols != mat2Rows)
         {
-            throw new ArgumentException("Матрицы имеют недопустимые размеры для умножения");
+            throw new ArgumentException("РњР°С‚СЂРёС†С‹ РёРјРµСЋС‚ РЅРµРґРѕРїСѓСЃС‚РёРјС‹Рµ СЂР°Р·РјРµСЂС‹ РґР»СЏ СѓРјРЅРѕР¶РµРЅРёСЏ");
         }
 
         Matrix result = new Matrix(mat1Rows, mat2Cols);
@@ -225,7 +225,7 @@ public class Matrix
         return result;
     }
 
-    //Перегрузка метода ToString для вывода
+    //РџРµСЂРµРіСЂСѓР·РєР° РјРµС‚РѕРґР° ToString РґР»СЏ РІС‹РІРѕРґР°
     public override string ToString()
     {
         int rows = matrix.GetLength(0);
